@@ -1,0 +1,116 @@
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title>
+            View
+        </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Bungee+Spice&family=Cinzel:wght@400..900&family=Holtwood+One+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Space+Grotesk:wght@300..700&family=Tac+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Bungee+Spice&family=Cinzel:wght@400..900&family=Holtwood+One+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Potta+One&family=Shojumaru&family=Space+Grotesk:wght@300..700&family=Tac+One&family=Whisper&family=Ysabeau+SC:wght@1..1000&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Space+Grotesk:wght@300..700&family=Tac+One&display=swap" rel="stylesheet">
+
+        <style>
+            body {
+              background-color: #0E3B43;
+              position: relative;
+              
+            }
+            #header{
+                text-align: center;
+                color: white;
+                padding-bottom: 5%;
+                font-family: "Whisper", cursive;
+            }
+            h1{
+              font-family: "Holtwood One SC", serif;
+            }
+            h3{
+                font-family: "Ysabeau SC", sans-serif;
+            }
+            #Blog_id{
+                color: white;
+                font-family: "Ysabeau SC", sans-serif;
+            }
+            p{
+                font-family: "Ysabeau SC", sans-serif;
+            }
+            .jumbotron{
+                background-color: #001011;
+                color: white;
+            }
+            span{
+                padding-left: 77%;
+            }
+          </style>
+    </head>
+
+    <body>
+            <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'brand' %}">Hyden's Blogsite</a>
+                </div>
+        
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="{% url 'home' %}">Home </a></li>
+                    <li class="active"><a href="">View Blog <span class="sr-only">(current)</span></a></li>
+                    <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                </ul>
+                
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+            </nav>
+            <div class="container">
+
+                <h1 id="Header">You can view your Blogs Here!</h1>
+
+                {% if Blogs %}
+
+                {% for Blog in Blogs %}
+                
+                <p id="Blog_id"><span>PUBLISHED ON:{{ Blog.Date }}</span></p>
+                <div class="jumbotron">
+
+                    <h1>Title: {{ Blog.Title }}</h1>
+                    <h3>Author: {{ Blog.Author }}</h3>
+                    {% if Blog.Image %}
+                    
+                    <img src="{{ Blog.Image.url }}" width="400px" height="550px" alt="Blog Image">
+                    {% endif %}
+                    <h3>Content:</h5>
+                    <p> {{ Blog.Content | linebreaks }}</p>
+
+
+                </div>
+
+
+
+                {% endfor %}
+                {% endif %}
+
+
+
+            </div>
+
+            
+        
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+  
+  </body>
+</html>

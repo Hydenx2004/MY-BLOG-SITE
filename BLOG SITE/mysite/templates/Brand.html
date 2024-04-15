@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hyden's Blog</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Space+Grotesk:wght@300..700&family=Tac+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Bungee+Spice&family=Cinzel:wght@400..900&family=Holtwood+One+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Potta+One&family=Rubik+Mono+One&family=Shojumaru&family=Space+Grotesk:wght@300..700&family=Tac+One&family=Whisper&family=Ysabeau+SC:wght@1..1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        img{
+            padding-top: 8%;
+            padding-left:50%;
+        }
+        
+        .btn-container {
+
+            position: absolute;
+            top: 50%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            color: white;
+            
+        }
+        h1{
+            font-family: "Rubik Mono One", monospace;
+            font-size: 400%;
+        }
+
+        body{
+            background-color: #0E3B43;
+            position: relative;
+            
+        }
+        h2{
+            color: white;
+            text-align: center;
+            font-family: "Whisper", cursive;
+            
+        }
+    </style>
+    
+</head>
+<body>
+   
+    <h2>Hyden's Blogsite</h2>
+    <div class="container">
+        
+        
+        <div class="btn-container">
+            <h1>The Place To Create <br>free Blogs</h1>
+            <a href="{% url 'home' %}" class="btn btn-default btn-lg"><h4>Get Started</h4></a>
+        </div>
+        <img src="{% static 'blog_img.jpg' %}" width="1100px" height="550px" alt="">
+    </div>
+</body>
+</html>
